@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}S'identifier!{% endblock %}
+
+{% block body %}
+    {% block header %}
+        {{ parent() }}
+    {% endblock %}
+    <div class="container">
+        <fieldset>
+
+
+            <div class="container mt-4">
+                <div class="photo-card">
+                    <p id="shine"> Shine</p>
+                    <p id="esthetics">Esthetics</p>
+                    <p id="legendeShine">MAKEUP-ESTHETIQUE-COIFFURE</p>
+                    <p id="telephone"><i class="fas fa-phone-square" id="iconeTelephone">
+                        </i>&nbsp;&nbsp;07 81 9143 98</p>
+                    <i class="fas fa-envelope-open-text" id="iconeMail"></i>&nbsp;&nbsp; <a
+                            href="mailto:shiinesthetics@gmail.com">shiinesthetics@gmail.com</a>
+                </div>
+                <div class="form-card mx-auto ">
+                    <div class=" titreForm ">
+                        <h1>Être Contacté</h1>
+                    </div>
+
+                    <!-- Le formulaire -->
+                    <form action="" method="post">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="nom"></label>
+                                <input type="text" class="form-control " name="nom" placeholder="Entrez votre nom "
+                                       value=""/>
+                            </div>
+                            <div class="form-group col-md-6 ">
+                                <label for="prenom"></label>
+                                <input type="prenom" class="form-control " name="prenom"
+                                       placeholder="Entrez votre prenom " value=""/>
+                            </div>
+                        </div>
+
+                        <div class="form-group ">
+                            <label for="mail"></label>
+                            <input type="email" class="form-control " name="mail"
+                                   placeholder="Entrez votre email @gmail.com" value=""/>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="message"></label>
+                            <textarea name="message" rows="4" cols="40" maxlength="255"
+                                      placeholder="Décrivez vos besoins" value=""></textarea>
+
+                        </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-danger btn-lg btn-block mt-3" name="valider">
+                                    Envoyer
+                                </button>
+                            </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </fieldset>
+
+    </div>
+
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}
+{% endblock %}

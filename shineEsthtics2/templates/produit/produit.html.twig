@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    {% block header %}
+        {{ parent() }}
+    {% endblock %}
+<div class="titre">
+    {{ titre }}
+</div>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Libellé</th>
+            <th scope="col">Description</th>
+            <th scope="col">Prix</th>
+            <th scope="col">panier</th>
+            <th scope="col">Devis</th>
+        </tr>
+    </thead>
+    <tbody class="tbody">
+
+        <tr>
+            <td><p>photo</p></td>
+            <td><p>Maquillage jour </p></td>
+            <td><p>Maquillage de tous les jours simple mais éfficace</p>  </td>
+            <td><p>Sur devis</p></td>
+            <td><a href=""><i class="fas fa-cart-plus"></i>&nbsp;&nbsp;</a>&nbsp;&nbsp;</td>
+            <td><a href=""><i class="fas fa-user-edit"></i>&nbsp;&nbsp;</a>&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+            <td><p>photo</p></td>
+            <td><p>Mariée Gold </p></td>
+            <td><p>Notre équipe s'occupe de votre maquillage toute la journée de l'évènement</p>  </td>
+            <td><p>Sur devis</p></td>
+            <td><a href=""><i class="fas fa-cart-plus"></i>&nbsp;&nbsp;</a>&nbsp;&nbsp;</td>
+            <td><a href=""><i class="fas fa-user-edit"></i>&nbsp;&nbsp;</a>&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+            <td><p>photo</p></td>
+            <td><p>Mariée PREMIUM </p></td>
+            <td><p>Notre équipe s'occupe de votre maquillage la demi journée de l'évènement</p> </td>
+            <td><p>Sur devis</p></td>
+            <td><a href=""><i class="fas fa-cart-plus"></i>&nbsp;&nbsp;</a>&nbsp;&nbsp;</td>
+            <td><a href=""><i class="fas fa-user-edit"></i>&nbsp;&nbsp;</a>&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+            <td><p>photo</p></td>
+            <td><p>Maquillage Demoiselle d'honneur </p></td>
+            <td><p>Notre équipe s'occupe de vos demoiselle d'honneur </p>  </td>
+            <td><p>Sur devis</p></td>
+            <td><a href=""><i class="fas fa-cart-plus"></i>&nbsp;&nbsp;</a>&nbsp;&nbsp;</td>
+            <td><a href=""><i class="fas fa-user-edit"></i>&nbsp;&nbsp;</a>&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+            <td><p>photo</p></td>
+            <td><p>Maquillage Anniversaire Mariage </p></td>
+            <td><p>Notre équipe s'occupe de vous pour se jour spécial! </p>  </td>
+            <td><p>Sur devis</p></td>
+            <td><a href=""><i class="fas fa-cart-plus"></i>&nbsp;&nbsp;</a>&nbsp;&nbsp;</td>
+            <td><a href=""><i class="fas fa-user-edit"></i>&nbsp;&nbsp;</a>&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+            <td><p>photo</p></td>
+            <td><p>Maquillage Fiançailles </p></td>
+            <td><p>Notre équipe s'occupe de vous .... </p>  </td>
+            <td><p>Sur devis</p></td>
+            <td><a href=""><i class="fas fa-cart-plus"></i>&nbsp;&nbsp;</a>&nbsp;&nbsp;</td>
+            <td><a href=""><i class="fas fa-user-edit"></i>&nbsp;&nbsp;</a>&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+            <td><p>photo</p></td>
+            <td><p>Maquillage Baby Shower </p></td>
+            <td><p>Notre équipe s'occupe fêtent l'évènement avec vous en s'occupant de vous! </p>  </td>
+            <td><p>Sur devis</p></td>
+            <td><a href=""><i class="fas fa-cart-plus"></i>&nbsp;&nbsp;</a>&nbsp;&nbsp;</td>
+            <td><a href=""><i class="fas fa-user-edit"></i>&nbsp;&nbsp;</a>&nbsp;&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}
+    {% endblock %}

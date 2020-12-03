@@ -1,0 +1,351 @@
+
+
+/**:before,
+*:after {
+    box-sizing: border-box;
+}*/
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+
+}
+
+body {
+    background-color:#fafafa;
+    font-weight: 400;
+    font-size: 15px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 20px;
+    margin: 0em auto;
+}
+.photo-menue{
+    margin-top: 5em;
+}
+.photo-menue p{
+    font-size: xx-large;
+}
+
+.titre{
+    font-size: xx-large;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    font-family: 'Dancing Script', cursive;
+    color:#232221;
+}
+.aboutMe {
+    margin-top: 5rem;
+}
+#photoLolo {
+    border-radius: 50%;
+
+}
+h1{
+    text-align: left;
+    margin-left: 50px;
+}
+
+h2,h3,p{
+    color:#232221;
+    font-family: 'EB Garamond', serif;
+    text-align: center;
+}
+p{
+    color:#232221;
+    font-family: 'EB Garamond', serif;
+    font-size: 20px;
+
+
+}
+
+
+.fas.fa-cart-plus{
+    color:#d50000 ;
+    font-size: 25px;
+
+}
+.fas.fa-user-edit{
+    color:#d50000 ;
+    font-size: 25px;
+
+}
+.fas.fa-user-lock{
+    color: #d50000 ;
+    font-size: 100px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+.fas.fa-user{
+    color: #d50000 ;
+    font-size: 100px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+
+.container .form-card .titreForm {
+    color: red;
+    font-size: 10px;
+    text-align: center;
+}
+
+.container .formLogin-card {
+    background-color:white;
+    text-align: center;
+    margin-top: 20px;
+    padding: 5em;
+    padding-top: 1em;
+    box-shadow: 12px 12px 2px 1px #bdbdbd
+}
+
+
+.container .formLogin-card .lock-open {
+    font-size: 160px;
+    color: #d50000 ;
+}
+
+.carousel-item img{
+    width: 100%;
+    height: 70rem;
+}
+#petitCarousel{
+    height: 30rem;
+}
+
+.color-primary {
+    color: #ffffff;
+}
+
+.color-primary-bg {
+    background-color: #424242;
+}
+
+.color-second {
+    color: #42a5f5;
+}
+
+.color-second-bg {
+    background-color: #42a5f5;
+}
+
+.color-third {
+    color: #009688;
+}
+
+.color-third-bg {
+    background-color: #009688;
+}
+
+.color-fourth {
+    color: #424242;
+}
+
+.color-fourth-bg {
+    background-color: #424242;
+}
+
+img.navbar-brand {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+}
+
+.img-product{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 20px;
+}
+
+.card {
+    width: 150px;
+    height: 400px;
+    margin-top: 50px;
+
+}
+
+.card img {
+
+    width: 100%;
+    height: 200px;
+}
+
+ .container fieldset{
+    background-color:white;
+    margin: 5rem auto;
+    padding: 2em;
+    padding-top: 3em;
+    box-shadow: 12px 12px 2px 1px #bdbdbd;
+}
+.footer {
+    background-color:#424242;
+    color: whitesmoke;
+    text-align: center;
+    margin-top: 100px;
+    padding-bottom: 20px;
+}
+
+fieldset p {
+    text-align: center;
+    color: red;
+}
+
+.container .photo-card #telephone {
+    text-align: center;
+    color: red;
+    font-size: 30px;
+}
+
+.container .photo-card #iconeTelephone {
+    font-size: 50px;
+}
+
+.container .photo-card #iconeMail {
+    font-size: 50px;
+    color: red;
+}
+
+.container .photo-card a {
+    font-size: 30px;
+    color: red;
+}
+
+.container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.container .photo-card {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+.container .form-card {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    width: 40%;
+}
+
+#shine {
+    font-family: 'Lobster', cursive;
+    font-size: 30px;
+    font-weight: 300;
+    color: red;
+    font-style: italic;
+    margin-top: 30px;
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+#esthetics {
+    font-family: 'Lobster', cursive;
+    font-size: 30px;
+    font-weight: 300;
+    color: red;
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+#legendeShine {
+    color: red;
+    text-align: center;
+}
+
+/*Gallery*/
+* {
+    box-sizing: border-box;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.fleches {
+    position: relative;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+    cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    margin-top: -50px;
+    padding-left: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    left: 30px;
+    border-radius: 0 3px 3px 0;
+}
+
+/* On hover, add a black background color with a little bit see-through
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0,);
+}
+*/
+
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Six columns side by side */
+.column {
+    float: left;
+    width: 16.66%;
+
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+    opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+    opacity: 1;
+}

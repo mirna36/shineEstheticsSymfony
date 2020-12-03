@@ -1,0 +1,13 @@
+{#{{ dump(field.value) }}#}
+{% for image in field.value%}
+   {#{{ dump(image) }}#}
+   <a href="#" class="ea-lightbox-thumbnail" data-featherlight="#{{ image.id }}" data-featherlight-close-on-click="anywhere">
+    <img src="{{ vich_uploader_asset(image, 'imageFile') }}" class="img-fluid" alt="{{ 'image.imageName' }}" width="150">
+</a>
+
+<div id="{{ image.id }}" class="ea-lightbox">
+    <img src="{{ vich_uploader_asset(image, 'imageFile') }}" alt="{{ 'image.imageName' }}">
+</div>
+
+{% endfor%}
+

@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    {% block header %}
+        {{ parent() }}
+    {% endblock %}
+<div class="titre">
+    {{ titre }}
+</div>
+
+
+    {% block section %}
+<section id="home-icones">
+    <div class="container">
+        <div class="row">
+            <div id="soins" class=" col-md-4 text-center ">
+                <img src="images/Soins/soins visage et corp.jpg " class="img-product ">
+                </i>
+                <h3>Maquillage de jour</h3>
+                <a href=" " class="btn btn-outline-danger ">Voir detail</a><br><br><br><br>
+            </div>
+
+            <div class="col-md-4 text-center ">
+                <img src="images/Make up/de jour.jpg " class="img-product ">
+                </i>
+                <h3>Maquillage de soirée</h3>
+                <a href=" " class="btn btn-outline-danger ">Voir detail</a><br><br><br><br>
+            </div>
+
+            <br><br>
+            <div class="col-md-4 text-center ">
+                <img src="images/caroussel/fingers-376812_1920.jpg " class="img-product ">
+                </i>
+                <h3>Mariage et évènements</h3>
+                <a href=" " class="btn btn-outline-danger ">Voir detail</a><br><br><br><br>
+            </div>
+
+            <div class="col-md-4 text-center ">
+                <img src="images/tutos/Tutoriels produit naturel.jpg " class="img-product ">
+                </i>
+                <h3>Shooting/spectacle</h3>
+                <a href=" " class="btn btn-outline-danger ">Voir detail</a>
+            </div>
+
+            <div class="col-md-4 text-center ">
+                <img src="images/tutos/pharmacy-2055130_1920.jpg " class="img-product ">
+                </i>
+                <h3>blog Conseils</h3>
+                <a href=" " class="btn btn-outline-danger ">Voir detail</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- action -->
+    {% endblock %}
+
+
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}
+{% endblock %}
