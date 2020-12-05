@@ -12,11 +12,26 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method SousCategories[]    findAll()
  * @method SousCategories[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class SousCathegoriesRepository extends ServiceEntityRepository
+class SousCategoriesRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, SousCategories::class);
+    }
+    /**
+     * @return SousCategories[] Returns an array of SousCategories objects
+     */
+
+    /*public function findBycat($shop)
+    {
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.categories= :shop')
+            ->setParameter('shop', $shop)
+            ->orderBy('s.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
     }
 
     // /**

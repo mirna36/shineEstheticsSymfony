@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+
+use App\Repository\SousCategoriesRepository;
+use phpDocumentor\Reflection\Types\This;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,6 +12,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class ShineEstheticsController extends AbstractController
 
 {
+
+    private $sousCategoriesRepository;
+
+    public function __construct(SousCategoriesRepository $sousCategoriesRepository)
+    {
+
+        $this->sousCategoriesRepository = $sousCategoriesRepository;
+    }
+
     /**
      * @Route("/", name="_accueil_")
      */
@@ -25,18 +37,19 @@ class ShineEstheticsController extends AbstractController
         );
     }
     /**
-     * @Route("/categories", name="categories")
+     * @Route("/shop", name="shop")
      */
-    public function cathegorie(): Response {
+    public function sousCategorie(): Response {
         $titre_page = "Shine Esthétics";
-        $titre = "Shine + cathegories id";
-        return $this->render('cathegories/categories.html.twig',[
+        $titre = "Shine Esthetics Shop";
+        return $this->render('produit/shop.html.twig',[
             'titre_page' => $titre_page,
             'titre' => $titre,
+            'sousCat'=>$this->sousCategoriesRepository->findAll(),
         ]);
     }
     /**
-     * @Route("/categories/produit", name="produit")
+     * @Route("/sousCategories/produit", name="produit")
      */
     public function produit(): Response {
         $titre_page = "Shine Esthétics";

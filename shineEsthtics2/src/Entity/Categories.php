@@ -38,9 +38,15 @@ class Categories
      */
     private $articlesPrestations;
 
+    /**
+     * @ORM\OneToMany(targetEntity=SousCategories::class, mappedBy="categories")
+     */
+    private $sousCategories;
+
     public function __construct()
     {
         $this->articlesPrestations = new ArrayCollection();
+        $this->sousCategories = new ArrayCollection();
     }
 
 
@@ -113,5 +119,35 @@ class Categories
     public function __toString():string
     {
         return $this->libelle;
+    }
+
+    /**
+     * @return Collection|SousCategories[]
+     */
+    public function getSousCategories(): Collection
+    {
+        return $this->sousCategories;
+    }
+
+    public function addSousCategory(SousCategories $sousCategory): self
+    {
+        if (!$this->sousCategories->contains($sousCategory)) {
+            $this->sousCategories[] = $sousCategory;
+            $sousCategory->setCategories($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSousCategory(SousCategories $sousCategory): self
+    {
+        if ($this->sousCategories->removeElement($sousCategory)) {
+            // set the owning side to null (unless already changed)
+            if ($sousCategory->getCategories() === $this) {
+                $sousCategory->setCategories(null);
+            }
+        }
+
+        return $this;
     }
 }

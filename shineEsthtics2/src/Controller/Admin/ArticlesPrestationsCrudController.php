@@ -63,10 +63,10 @@ class ArticlesPrestationsCrudController extends AbstractCrudController
             ->onlyOnDetail();
 
 
-        if($pageName=Crud::PAGE_INDEX|| $pageName=Crud::PAGE_DETAIL){
-            $affichageImages = [$panelImages,$nomPhoto,$fichierPhoto, $nomImageJointe,];
+        if($pageName == Crud::PAGE_INDEX || $pageName == Crud::PAGE_DETAIL){
+            $affichageImages = [$panelImages,$nomPhoto,$fichierPhoto, $nomImageJointe];
         }else{
-            $affichageImages = [$panelImages,$nomPhoto,$fichierPhoto,$fichierPieceJointe,$nomImageJointe];
+            $affichageImages = [$panelImages,$nomPhoto,$fichierPhoto,$fichierPieceJointe];
         }
         return array_merge($affichageArticle, $affichageImages);
 

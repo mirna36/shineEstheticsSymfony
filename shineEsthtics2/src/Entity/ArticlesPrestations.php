@@ -31,7 +31,7 @@ class ArticlesPrestations
     private $libelle;
 
     /**
-     * @ORM\Column(type="decimal", precision=5, scale=2)
+     * @ORM\Column(type="float")
      */
     private $prix_unit;
 

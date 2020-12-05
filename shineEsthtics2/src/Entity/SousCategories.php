@@ -8,10 +8,13 @@ use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=SousCategoriesRepository::class)
  * @ORM\HasLifecycleCallbacks
+ * @Vich\Uploadable
  */
 class SousCategories
 {
@@ -37,10 +40,27 @@ class SousCategories
      */
     private $articlesPrestations;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Categories::class, inversedBy="sousCategories")
+     */
+    private $categories;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $nomPhoto;
+     /**
+      * @Vich\UploadableField(mapping="img_products", fileNameProperty="nomPhoto")
+      * @var File|null
+      */
+    private $fichierPhoto;
+
+
     public function __construct()
     {
         $this->articlesPrestations = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
@@ -112,4 +132,50 @@ class SousCategories
     {
         return $this->libelle;
     }
+
+    public function getCategories(): ?Categories
+    {
+        return $this->categories;
+    }
+
+    public function setCategories(?Categories $categories): self
+    {
+        $this->categories = $categories;
+
+        return $this;
+    }
+
+    public function getNomPhoto(): ?string
+    {
+        return $this->nomPhoto;
+    }
+
+    public function setNomPhoto(?string $nomPhoto): self
+    {
+        $this->nomPhoto = $nomPhoto;
+
+        return $this;
+    }
+
+    /**
+     * @return File|null
+     */
+    public function getFichierPhoto(): ?File
+    {
+        return $this->fichierPhoto;
+    }
+
+    /**
+     * @param File|null $fichierPhoto
+     */
+    public function setFichierPhoto(?File $fichierPhoto): void
+    {
+        $this->fichierPhoto = $fichierPhoto;
+        if($fichierPhoto){
+            $this->createdAt=new DateTime();
+        }
+    }
+
+
+
 }
