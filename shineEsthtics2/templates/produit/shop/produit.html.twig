@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    {% block header %}
+        {{ parent() }}
+    {% endblock %}
+    <div class="titre">
+        {{ titre }}
+    </div>
+    {% block section %}
+
+        <section id="home-icones">
+            <div class="container">
+                <div class="row">
+                    {% for articlesPrestations in produits %}
+                    <div class=" col-md-3 text-center ">
+                        <div class="boxProduit">
+                            <img src="{{ asset('images/products/') }}{{ articlesPrestations.nomPhoto }}" class="img-product "
+                                 alt="{{ articlesPrestations.nomPhoto }}"><br>
+                            <h3>{{ articlesPrestations.libelle }}</h3>
+                            <h6 class="text-muted">{{ articlesPrestations.prixUnit}}€</h6>
+                            <a class="btn btn-danger btn-sm" href="{{ path('detailProduit',{id:articlesPrestations.id,slug:articlesPrestations.slug}) }}">Detail</a>
+                            <button type="button" class="btn-danger btn-sm">panier</button>
+                        </div>
+                        <br><br><br>
+
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+    {% endblock %}
+
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}
+{% endblock %}

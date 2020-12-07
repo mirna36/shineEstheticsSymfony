@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use App\Repository\ArticlesPrestationsRepository;
+use App\Repository\CategoriesRepository;
 use App\Repository\SousCategoriesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,11 +18,14 @@ class ShineEstheticsController extends AbstractController
     private $sousCategoriesRepository;
     private $articlesPrestationsRepository;
 
-    public function __construct(SousCategoriesRepository $sousCategoriesRepository,ArticlesPrestationsRepository $articlesPrestationsRepository )
+    private $categoriesRepository;
+
+    public function __construct(SousCategoriesRepository $sousCategoriesRepository,ArticlesPrestationsRepository $articlesPrestationsRepository,CategoriesRepository $categoriesRepository)
     {
 
         $this->sousCategoriesRepository = $sousCategoriesRepository;
         $this->articlesPrestationsRepository = $articlesPrestationsRepository;
+        $this->categoriesRepository = $categoriesRepository;
     }
 
 
@@ -48,23 +52,39 @@ class ShineEstheticsController extends AbstractController
     public function sousCategorie(): Response {
         $titre_page = "Shine Esthétics";
         $titre = "Shine Esthetics Shop";
-        return $this->render('produit/shop.html.twig',[
+        return $this->render('produit/shop/shop.html.twig',[
             'titre_page' => $titre_page,
             'titre' => $titre,
-            'sousCat'=>$this->sousCategoriesRepository->findAll(),
+            'sousCat'=>$this->sousCategoriesRepository->findBy(["categories"=>4]),
         ]);
     }
     /**
-     * @Route("/shop/produit", name="produit")
+     * @Route("/shop/produits", name="shop_produits")
      */
     public function produit(): Response {
         $titre_page = "Shine Esthétics";
         $titre = "Shine Esthetics Shop produit ";
-        return $this->render('produit/produit.html.twig',[
+        return $this->render('produit/shop/produit.html.twig',[
             'titre_page' => $titre_page,
             'titre' => $titre,
-            'produits'=>$this->articlesPrestationsRepository->findAll(),
+            'produits'=>$this->articlesPrestationsRepository->findBy(["categories"=>4]),
         ]);
+    }
+
+    /**
+     * @Route("/produit/{id}--{slug}",name="detailProduit")
+     * @param int $id
+     * @return Response
+     */
+    public function detailProduit(int $id){
+        $titre_page = "Shine Esthétics";
+        $titre = "Shine Esthetics Shop produit ";
+        return $this->render("produit/shop/detailProduit.html.twig",[
+            'titre_page' => $titre_page,
+            'titre' => $titre,
+            'produit'=>$this->articlesPrestationsRepository->find($id),
+        ]);
+
     }
 
     /**

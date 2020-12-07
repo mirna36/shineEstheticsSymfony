@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    {% block header %}
+        {{ parent() }}
+    {% endblock %}
+<div class="titre">
+    {{ titre }}
+</div>
+
+{% block section %}
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+        <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+            <div class="my-3 p-3">
+                <h2 class="display-5">{{ produit.libelle }}</h2>
+                <p class="lead">{{ produit.prixUnit }}€</p>
+            </div>
+            <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+                <img class="img-fluid" src="{{ asset('images/products/') }}{{ produit.nomPhoto }}" class="img-product "
+                     alt="{{ produit.nomPhoto }}">
+            </div>
+        </div>
+        <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+            <div class="my-3 py-3">
+                <h2 class="display-5">Description</h2>
+                <br>
+            </div>
+            <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+                {{ produit.description | raw }}
+            </div>
+        </div>
+    </div>
+    <br><br><br><br>
+
+    <a class="btn btn-danger btn-sm"  href="{{ path('shop_produits') }}">Retour page produit</a>
+    {% endblock %}
+
+
+
+
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}
+{% endblock %}
+
+
+
+
+

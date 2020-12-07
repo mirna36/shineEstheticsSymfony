@@ -2,6 +2,11 @@
 {% extends '@EasyAdmin/page/content.html.twig' %}
 
 {% block page_title 'Tableau de Bord' %}
+{% block header_logo %}
+    <a  class="logo {{ ea.dashboardTitle|length > 14 ? 'logo-long' }}" title="{{ ea.dashboardTitle|striptags }}" href="{{ path('_accueil_') }}">
+        {{ ea.dashboardTitle|raw }}
+    </a>
+{% endblock header_logo %}
 
 {% block page_content %}
     <h1>Nombres d'utilisateurs  en base de donnée: {{ nbrUsers }}</h1>
