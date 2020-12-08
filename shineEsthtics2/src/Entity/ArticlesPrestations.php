@@ -88,6 +88,11 @@ class ArticlesPrestations
      */
     private $pieceJointes;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Shop::class, inversedBy="articlesPrestations")
+     */
+    private $shop;
+
     public function __construct()
     {
         $this->pieceJointes = new ArrayCollection();
@@ -271,6 +276,18 @@ class ArticlesPrestations
                 $pieceJointe->setArticlePrestation(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getShop(): ?Shop
+    {
+        return $this->shop;
+    }
+
+    public function setShop(?Shop $shop): self
+    {
+        $this->shop = $shop;
 
         return $this;
     }

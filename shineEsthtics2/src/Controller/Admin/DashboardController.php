@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\ArticlesPrestations;
 use App\Entity\Categories;
+use App\Entity\Shop;
 use App\Entity\SousCategories;
 use App\Entity\User;
 use App\Repository\UserRepository;
@@ -57,6 +58,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Catégories', 'fas fa-list', Categories::class);
         yield MenuItem::linkToCrud('Sous-Catégories', 'fas fa-list', SousCategories::class);
         yield MenuItem::linkToCrud('Articles/Prestations', 'fas fa-list', ArticlesPrestations::class);
+        yield MenuItem::linkToCrud('Shop', 'fas fa-list', Shop::class);
     }
 
 public function configureUserMenu(UserInterface $user): \EasyCorp\Bundle\EasyAdminBundle\Config\UserMenu

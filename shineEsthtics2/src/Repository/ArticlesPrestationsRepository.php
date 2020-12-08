@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\ArticlesPrestations;
+use App\Utils\Recherche;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -47,4 +48,26 @@ class ArticlesPrestationsRepository extends ServiceEntityRepository
         ;
     }
     */
+    /**
+     * @param Recherche $maRecherche
+     * @return array
+     */
+    public function findProduitByRecherche(Recherche $maRecherche): array
+    {
+        $maRequete = $this->createQueryBuilder('p')
+            ->select('c', 'p')
+            ->join('p.shop', 'c');
+        if ($maRecherche->getCategories()) {
+            $maRequete = $maRequete
+                ->andWhere('p.shop IN (:categories)')
+                ->setParameter('categories', $maRecherche->getCategories());
+        }
+        if ($maRecherche->getChaine()) {
+            $maRequete = $maRequete
+                ->andWhere('p.libelle LIKE :chaine')
+                ->setParameter('chaine', $maRecherche->getChaine());
+        }
+        return $maRequete->getQuery()->getResult();
+    }
 }
+

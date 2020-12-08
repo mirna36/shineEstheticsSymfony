@@ -55,10 +55,9 @@ h2,h3,p{
 p{
     color:#232221;
     font-family: 'EB Garamond', serif;
-    font-size: 20px;
-
-
+    font-size: 10px;
 }
+
 
 
 .fas.fa-cart-plus{
@@ -231,10 +230,70 @@ fieldset p {
     flex-direction: row;
     width: 40%;
 }
+a{
+    color: #232221;
+}
+
 .boxProduit{
     padding-top: 1em;
     padding-bottom: 1em;
+    margin-bottom: 40px;
+
+}
+.boxProduit:hover{
+    transform: translateY(25px);
     box-shadow: 12px 12px 2px 1px #bdbdbd;
+}
+fieldset.form-group{
+    margin-top: 2px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+/*accueil prestations*/
+
+.flip-items{
+   position: relative;
+
+}
+.image__img{
+    display: block;
+}
+.img__overlay{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:rgb(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+.img__overlay--blur{
+    backdrop-filter: blur(5px);
+}
+.img__overlay h3,p{
+    transform: translateY(40px);
+    transition: transform 0.25s;
+
+}
+
+.img__overlay:hover h3,p{
+    transform: translateY(0);
+}
+.img__overlay:hover{
+    opacity: 1;
+}
+.flip-items h3,p{
+    text-align: left;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+.flip-items p{
+    font-size: small;
 }
 #shine {
     font-family: 'Lobster', cursive;

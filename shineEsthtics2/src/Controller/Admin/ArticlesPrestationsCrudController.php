@@ -40,10 +40,11 @@ class ArticlesPrestationsCrudController extends AbstractCrudController
         $slug = SlugField::new('slug')->setTargetFieldName('libelle');
         $cat = AssociationField::new('categories','Catégories');
         $sousCath = AssociationField::new('sousCategories','Sous_Catégoties');
+        $shop =AssociationField::new('shop','Shop');
         $description = TextEditorField::new('description','Description');
 
         $affichageArticle = [$panelArticles, $id, $libelle, $prix,$devis,
-             $dispo,$slug, $cat,$sousCath,$description
+             $dispo,$slug, $cat,$sousCath,$shop,$description
          ];
         $panelImages = FormField::addPanel('INFOS IMAGES');
         $nomPhoto = ImageField::new('nomPhoto')

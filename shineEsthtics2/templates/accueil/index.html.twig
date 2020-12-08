@@ -11,7 +11,7 @@
                 <li data-target="#myCarousel" data-slide-to="1"></li>
                 <li data-target="#myCarousel" data-slide-to="2"></li>
             </ol>
-            <div class="carousel-inner"style="height: 120vh">
+            <div class="carousel-inner" style="height: 120vh">
                 <div class="carousel-item active">
 
                     <img src="{{ asset('images/maquillage.jpg') }}" class="d-block w-100" alt="...">
@@ -66,7 +66,7 @@
             <div class="row featurette">
                 <div class="col-md-7 order-md-2">
                     <h2 class="featurette-heading" style="color: red; font-size: 30px">About me See for yourself.</h2>
-                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
+                    <p class="lead" style="font-size: small">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
                         euismod semper.
                         Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
                         commodo.
@@ -112,25 +112,48 @@
             <div id="coverflow">
                 <ul class="flip-items">
                     <li data-flip-title="Red">
-                        <p style="font-size: xx-large">Ongle</p>
-                        <img src="{{ asset('images/mini/rsz_ongle.jpg') }}">
+                        <img class="image__img" src="{{ asset('images/mini/rsz_ongle.jpg') }}">
+                        <div class="img__overlay img__overlay--blur">
+                            <h3 style="color: #cccccc">Ongle</h3>
+                            <p style="color: #cccccc">Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
+                                commodo.</p>
+                        </div>
 
                     </li>
                     <li data-flip-title="Razzmatazz" data-flip-category="Purples">
-                        <p>Coiffure</p>
                         <img src="{{ asset('images/mini/rsz_coiffure.jpg') }}">
+                        <div class="img__overlay img__overlay--blur">
+                            <h3 style="color: #cccccc">Coiffure</h3>
+                            <p style="color: #cccccc">Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
+                                commodo.</p>
+
+                        </div>
                     </li>
                     <li data-flip-title="Deep Lilac" data-flip-category="Purples">
-                        <p>Maquillage</p>
                         <img src="{{ asset('images/mini/rsz_maquillage.jpg') }}">
+                        <div class="img__overlay img__overlay--blur">
+                            <h3 style="color: #cccccc">Maquillage</h3>
+                            <p style="color: #cccccc">Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
+                                commodo.</p>
+                        </div>
                     </li>
                     <li data-flip-title="Daisy Bush" data-flip-category="Purples">
-                        <p style="font-size:xx-large; text-align: center">Formation en ligne</p>
+
                         <img src="{{ asset('images/mini/rsz_soins_visage.gif') }}">
+                        <div class="img__overlay img__overlay--blur">
+                            <h3 style="color: #cccccc">Formation en ligne</h3>
+                            <p style="color: #cccccc">Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
+                                commodo.</p>
+                        </div>
                     </li>
                     <li data-flip-title="Cerulean Blue" data-flip-category="Blues">
-                        <p style="font-size:30px; text-align: center">Shop</p>
                         <img src="{{ asset('images/mini/rsz_maquillage1.jpg') }}">
+                        <div class="img__overlay img__overlay--blur">
+                            <h3 style="color: #cccccc">Shop</h3>
+                            <p style="color: #cccccc">Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
+                                commodo.</p>
+                            <div class="btn btn-danger"><a  href="{{ path('shop') }}">Détail</a></div>
+                        </div>
 
                     </li>
 
@@ -222,7 +245,7 @@
 
                 <h2 class="featurette-heading" style="color: red; font-size: 30px">First featurette heading. It’ll blow
                     your mind.</h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
+                <p class="lead"STYLE="font-size: small">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
                     euismod semper.
                     Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
                     commodo.
@@ -251,7 +274,7 @@
                 <div class="col-md-7">
                     <h2 class="featurette-heading" style="color: red; font-size: 30px">Oh yeah, it’s that good. See for
                         yourself.</h2>
-                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla.
+                    <p class="lead" STYLE="font-size: small">Donec ullamcorper nulla non metus auctor fringilla.
                         Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna,
                         vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
                         Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta
@@ -327,7 +350,7 @@
                 <div class="col-md-7 order-md-2">
                     <h2 class="featurette-heading" style="color: red;font-size: 30px">And lastly, this one.
                         Checkmate.</h2>
-                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla.
+                    <p class="lead" style="font-size: small">Donec ullamcorper nulla non metus auctor fringilla.
                         Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna,
                         vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
                         Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta
