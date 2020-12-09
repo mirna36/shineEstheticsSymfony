@@ -28,6 +28,11 @@
             <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
                 {{ produit.description | raw }}
             </div>
+            <br><br>
+            <div>
+                <a class="btn btn-danger " href="{{ path('ajouter',{id:produit.id}) }}">panier</a>
+            </div>
+
         </div>
     </div>
     <br><br><br><br>

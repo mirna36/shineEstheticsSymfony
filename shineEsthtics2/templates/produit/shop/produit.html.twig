@@ -33,9 +33,9 @@
                                      alt="{{ articlesPrestations.nomPhoto }}"><br>
                                 <h3>{{ articlesPrestations.libelle }}</h3>
                                 <h6 class="text-muted">{{ articlesPrestations.prixUnit }}€</h6>
-                                <a class="btn btn-danger btn-sm"
+                                <a class="btn btn-danger btn"
                                    href="{{ path('detailProduit',{id:articlesPrestations.id,slug:articlesPrestations.slug}) }}">Detail</a>
-                                <button type="button" class="btn-danger btn-sm">panier</button>
+                                <a class="btn-danger btn" href="{{ path('ajouter',{id:articlesPrestations.id}) }}">panier</a>
                             </div>
 
                         {% endfor %}

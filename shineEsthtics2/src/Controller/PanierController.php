@@ -4,51 +4,36 @@ namespace App\Controller;
 
 use App\Service\AppService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
-/**
- * @Route("/panier", name="panier_")
- */
-
 class PanierController extends AbstractController
-
 {
     /**
-     * @var AppService
+     * @Route("/panier", name="panier")
      */
-    private $appService;
-
-    public function __construct(AppService $appService){
-
-        $this->appService = $appService;
-    }
-
-    /**
-     * route qui affiche le contenu du panier
-     * @Route("/", name="contenu")
-     */
-    public function index(): Response
+    public function index(AppService $appService): Response
     {
-        $contenuDuPanier = $this->appService->contenuDuPanier();
-        return $this->json(
-            [
-                'panier'=>$contenuDuPanier
-            ]
-
+        dd($appService->get());
+        return $this->render('panier/index.html.twig'
         );
     }
-
     /**
-     * @Route("/ajouter/{id}", name="ajouter")
-     * @param int $id
-     * @return RedirectResponse
+     * @Route("/panier/ajouter/{id}", name="ajouter")
      */
-    public function ajouter(int $id){
-        $this->appService->ajouterAuPanier($id);
-        return $this->redirectToRoute('panier_contenu');
+    public function ajouter(AppService $appService,$id): Response
+    {
+        $appService->ajouter($id);
+        return $this->redirectToRoute('panier');
+
+    }
+    /**
+     * @Route("/panier/supprimer", name="supprimer")
+     */
+    public function supprimer(AppService $appService): Response
+    {
+        $appService->supprimer();
+        return $this->redirectToRoute('shop');
 
     }
 }
