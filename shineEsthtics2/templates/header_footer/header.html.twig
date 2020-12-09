@@ -4,89 +4,95 @@
 
     <header>
         <nav class="navbar navbar-expand-md navbar-dark  bg-dark">
-            <a class="navbar-brand" href="{{ path('_accueil_') }}"><img class="navbar-brand" src="../images/logo.jpeg" alt="Logo" /></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="{{ path('_accueil_') }}"><img class="navbar-brand" src="../images/logo.jpeg"
+                                                                        alt="Logo"/></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ path('_accueil_') }}"style="color: #ffffff">Accueil</a>
+                        <a class="nav-link" href="{{ path('_accueil_') }}" style="color: #ffffff">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('contact') }}"style="color: #ffffff">Contact</a>
+                        <a class="nav-link" href="{{ path('contact') }}" style="color: #ffffff">Contact</a>
                     </li>
                 </ul>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown" style="color: #ffffff">
-                    <ul class="navbar-nav m-auto font-logo font-size-20">
-                        {% if is_granted('ROLE_ADMIN') %}
 
-                            <a class="nav-link" href="{{ path('admin') }}" style="color: #ffffff">Tableau de Bord</a>
 
-                        {% else %}
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" style="color: #ffffff">Ongle</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" style="color: #ffffff">Coiffure</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" style="color: #ffffff">Maquillage</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" style="color: #ffffff">Formation en Ligne</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ path('shop') }}" style="color: #ffffff">Shop</a>
-                            </li>
-                        {% endif %}
-
-                    </ul>
+                <ul class="navbar-nav m-auto font-logo font-size-20">
                     {% if is_granted('ROLE_ADMIN') %}
-                        <div class="dropdown">
-                            <a class=" dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"style="color: #ffffff">
-                                Admin
-                            </a>
 
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a class="nav-link" href="{{ path('admin') }}" style="color: #ffffff">Tableau de Bord</a>
+                        </li>
 
-                                <a class="dropdown-item" href="{{ path('app_logout') }}">Déconnexion</a>
-                            </div>
-                        </div>
-
-                    {% elseif is_granted('ROLE_USER')  %}
-
-                        <div>{{ app.user.nomComplet }}</div>&nbsp &nbsp &nbsp
-
-                        <div class="dropdown">
-                            <a class=" dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"style="color: #ffffff">
-                                Mon compte
-                            </a>
-
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="#">Mes commandes</a>
-                                <a class="dropdown-item" href="#">Mon Profile</a>
-                                <a class="dropdown-item" href="{{ path('app_logout') }}">Déconnexion</a>
-                            </div>
-                        </div>
-                    {% else %}
-                    {% endif %}
-
-                    <a href="#" class="py-2 rounded-pill color-bg-fourth">
-                        <span class="font-size-16 px-2 text-white"><i class="fas fa-shopping-cart"></i></span>
-                        <span class="px-3 py-2 rounded-pill text-dark bg-light">0</span>
-
-                    </a>
-                    {% if is_granted('ROLE_USER')  %}
                     {% else %}
 
-                        <a class="nav-link" href="{{ path('app_register') }}" style="color: #ffffff">Register</a>
-                        <a class="nav-link" href="{{ path('app_login') }}" style="color: #ffffff">Login</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style="color: #ffffff">Ongle</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style="color: #ffffff">Coiffure</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style="color: #ffffff">Maquillage</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style="color: #ffffff">Formation en Ligne</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('shop') }}" style="color: #ffffff">Shop</a>
+                        </li>
                     {% endif %}
 
-                </div>
+                </ul>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <div class="dropdown">
+                        <a class=" dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false" style="color: #ffffff">
+                            Admin
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+
+                            <a class="dropdown-item" href="{{ path('app_logout') }}">Déconnexion</a>
+                        </div>
+                    </div>
+
+                {% elseif is_granted('ROLE_USER') %}
+
+                    <div>{{ app.user.nomComplet }}</div>&nbsp &nbsp &nbsp
+
+                    <div class="dropdown">
+                        <a class=" dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false" style="color: #ffffff">
+                            Mon compte
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="#">Mes commandes</a>
+                            <a class="dropdown-item" href="#">Mon Profile</a>
+                            <a class="dropdown-item" href="{{ path('app_logout') }}">Déconnexion</a>
+                        </div>
+                    </div>
+                {% else %}
+                {% endif %}
+
+                <a href="#" class="py-2 rounded-pill color-bg-fourth">
+                    <span class="font-size-16 px-2 text-white"><i class="fas fa-shopping-cart"></i></span>
+                    <span class="px-3  rounded-pill text-dark bg-light">0</span>
+
+                </a>
+                {% if is_granted('ROLE_USER') %}
+                {% else %}
+
+                    <a class="nav-link" href="{{ path('app_register') }}" style="color: #ffffff">Register</a>
+                    <a class="nav-link" href="{{ path('app_login') }}" style="color: #ffffff">Login</a>
+                {% endif %}
+
             </div>
+
         </nav>
     </header>
 
