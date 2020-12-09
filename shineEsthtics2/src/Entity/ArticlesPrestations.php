@@ -9,7 +9,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Vich\UploaderBundle\Mapping\Annotation\Uploadable;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticlesPrestationsRepository", repositoryClass=ArticlesPrestationsRepository::class)
@@ -22,16 +23,19 @@ class ArticlesPrestations
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("main")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Groups("main")
      */
     private $libelle;
 
     /**
      * @ORM\Column(type="float")
+     *
      */
     private $prix_unit;
 

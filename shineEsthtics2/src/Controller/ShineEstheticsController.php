@@ -117,26 +117,6 @@ class ShineEstheticsController extends AbstractController
             'titre' => $titre,
         ]);
     }
-    /**
-     * @Route("/panier", name="panier")
-     */
-    public function panier(): Response {
-        $titre_page = "Shine Esthétics";
-        $titre = "Validation panier";
-        return $this->render('produit/panier.html.twig',[
-            'titre_page' => $titre_page,
-            'titre' => $titre,
-        ]);
-    }
-    /**
-     * @Route("/devis", name="devis")
-     */
-    public function devis(): Response {
-        $titre_page = "Shine Esthétics";
-        $titre = "Demande de devis ";
-        return $this->render('produit/devis.html.twig',[
-            'titre_page' => $titre_page,
-            'titre' => $titre,
-        ]);
-    }
+
+
 }
