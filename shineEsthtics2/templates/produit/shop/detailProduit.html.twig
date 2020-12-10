@@ -4,47 +4,123 @@
     {% block header %}
         {{ parent() }}
     {% endblock %}
-<div class="titre">
-    {{ titre }}
-</div>
+    <div class="titre">
+        {{ titre }}
+    </div>
 
-{% block section %}
-    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-        <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-            <div class="my-3 p-3">
+    {% block section %}
+
+        <div class="row featurette">
+            <div class="col-md-5">
+                <div class="fleches">
+
+                    <!-- Full-width images with number text -->
+                    <div class="mySlides">
+                        <div class="numbertext"></div>
+                        <img src="{{ asset('images/products/') }}{{ produit.nomPhoto }}" style="width:400px">
+                    </div>
+
+                    {% for pj in produit.pieceJointes %}
+                        <div class="mySlides">
+                            <div class="numbertext"></div>
+                            <img src="{{ asset('images/products/') }}{{ pj.imageName }}" style="width:400px">
+                        </div>
+                    {% endfor %}
+
+
+                    <!-- Next and previous buttons -->
+                    <a class="prev" onclick="plusSlides(-1)" style="color: #1b1e21">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)" style="color: #1b1e21">&#10095;</a>
+
+                    <!-- Thumbnail images -->
+                    <div class="row">
+                        <div class="column">
+                            <div class="row">
+                                <img class="demo cursor" src="{{ asset('images/products/') }}{{ produit.nomPhoto }}"
+                                     style="width:100%"
+                                     onclick="currentSlide(1)" alt="">
+                            </div>
+                        </div>
+                        {% for pj in produit.pieceJointes %}
+                            <div class="column">
+                                <div class="row">
+
+                                    <img class="demo cursor" src="{{ asset('images/products/') }}{{ pj.imageName }}"
+                                         style="width:100%"
+                                         onclick="currentSlide(2)" alt="">
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <h2>Description</h2>
+                <br>
                 <h2 class="display-5">{{ produit.libelle }}</h2>
                 <p class="lead">{{ produit.prixUnit }}€</p>
-            </div>
-            <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-                <img class="img-fluid" src="{{ asset('images/products/') }}{{ produit.nomPhoto }}" class="img-product "
-                     alt="{{ produit.nomPhoto }}">
-            </div>
-        </div>
-        <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-            <div class="my-3 py-3">
-                <h2 class="display-5">Description</h2>
                 <br>
+                <div class="text-center">
+                    {{ produit.description | raw }}
+                </div>
+                <br>
+                <div class="text-center">
+                    <a class="btn btn-danger " href="{{ path('ajouter',{id:produit.id}) }}">panier</a>
+                </div>
+                <br>
+                <div class="text-center">
+                    <a class="btn btn-danger btn-sm" href="{{ path('shop') }}">Retour page produit</a>
+                </div>
             </div>
-            <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-                {{ produit.description | raw }}
-            </div>
-            <br><br>
-            <div>
-                <a class="btn btn-danger " href="{{ path('ajouter',{id:produit.id}) }}">panier</a>
-            </div>
-
         </div>
-    </div>
-    <br><br><br><br>
 
-    <a class="btn btn-danger btn-sm"  href="{{ path('shop') }}">Retour page produit</a>
+
+
     {% endblock %}
-
-
 
 
     {% block footer %}
         {{ parent() }}
+    {% endblock %}
+
+    {% block javascripts %}
+        <script>
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            // Next/previous controls
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            // Thumbnail image controls
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("demo");
+                var captionText = document.getElementById("caption");
+                if (n > slides.length) {
+                    slideIndex = 1
+                }
+                if (n < 1) {
+                    slideIndex = slides.length
+                }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+                captionText.innerHTML = dots[slideIndex - 1].alt;
+            }
+        </script>
     {% endblock %}
 {% endblock %}
 

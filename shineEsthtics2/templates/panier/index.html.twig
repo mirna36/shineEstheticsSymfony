@@ -1,20 +1,80 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PanierController!{% endblock %}
+{% block title %}{{ titre_page }}{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    {% block header %}
+        {{ parent() }}
+        <div class="titre">
+            <h1>{{ titre }}</h1>
+        </div>
+        <h2>Retrouvez l'ensemble des produits que vous avez ajouté à votre panier.</h2>
+        <hr>
+    {% endblock %}
 
-<div class="example-wrapper">
-    <h1>Hello ! ✅</h1>
+    {% block section %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/symfony/shineEsthtics2/src/Controller/PanierController.php'|file_link(0) }}">src/Controller/PanierController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/symfony/shineEsthtics2/templates/panier/index.html.twig'|file_link(0) }}">templates/panier/index.html.twig</a></code></li>
-    </ul>
-</div>
+        <div class="container">
+            {% if panier|length >0 %}
+                <table class="table">
+                    <thead style="background: gray">
+                        <tr>
+                        <th scope="col">Produit</th>
+                        <th scope="col">Libellé</th>
+                        <th scope="col">Quantité</th>
+                        <th scope="col">Prix</th>
+                        <th scope="col">Total</th>
+                        <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% set total = null %}
+                    {% for produit in panier %}
+
+                        <tr>
+                        <th><img src="{{ asset('images/products/') }}{{ produit.produit.nomPhoto }}"
+                                 alt="{{ produit.produit.nomPhoto }}" width="70"><br></th>
+                        <td class="align-middle" style="width: 300px">{{ produit.produit.libelle }}<br>
+                            <small>{{ produit.produit.description | raw }}</small></td>
+                        <td class="align-middle" >
+                            <a href="{{ path('diminuer',{'id': produit.produit.id}) }}"><i
+                                        class="fas fa-minus"></i>
+                            </a>
+                            x{{ produit.quantite }}
+
+                            <a href="{{ path('ajouter',{'id': produit.produit.id}) }}"> <i
+                                        class="fas fa-plus"></i>
+                            </a>
+                        </td>
+                        <td class="align-middle" >{{ produit.produit.prixUnit | format_currency('Eur') }}
+                        <td class="align-middle" >{{ (produit.produit.prixUnit * produit.quantite) | format_currency('Eur') }}</td>
+                        <td class="align-middle" ><a href="{{ path('supprimerItem',{'id': produit.produit.id}) }}"><i
+                                        class="fas fa-trash-alt"></i></a></td>
+                        </tr>
+
+                        {% set total = total + (produit.produit.prixUnit * produit.quantite) %}
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            <br>
+                </div>
+            <hr>
+            <div class="text-center">
+                <p style="font-size: 15px">Nombre de produit: {{ panier|length }}</p>
+                <p style="font-size: 15px">Total panier: {{ total | format_currency('EUR') }}</p>
+                <a href="" class="btn btn-danger">Valider mon panier</a>
+            </div>
+
+            {% else %}
+            <hr>
+            <h3>Votre panier est vide!</h3>
+            {% endif %}
+        </div>
+
+    {% endblock %}
+
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}
 {% endblock %}

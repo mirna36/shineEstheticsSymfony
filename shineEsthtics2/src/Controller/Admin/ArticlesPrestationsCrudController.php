@@ -15,6 +15,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -28,13 +29,12 @@ class ArticlesPrestationsCrudController extends AbstractCrudController
         return ArticlesPrestations::class;
     }
 
-
     public function configureFields(string $pageName): iterable
     {
         $panelArticles = FormField::addPanel('INFOS ARTICLE/PRESTATION');
         $id = IdField::new('id', 'ID')->onlyOnIndex();
         $libelle = TextField::new('libelle','Libellé');
-        $prix = MoneyField::new('prix_unit','Prix')->setCurrency('EUR');
+        $prix = NumberField::new('prix_unit','Prix')->addCssClass('right');
         $devis = BooleanField::new('devis','Sous Devis');
         $dispo = BooleanField::new('disponible','Disponible');
         $slug = SlugField::new('slug')->setTargetFieldName('libelle');
@@ -54,10 +54,12 @@ class ArticlesPrestationsCrudController extends AbstractCrudController
 
         $fichierPhoto = VichImageField::new('fichierPhoto','Photo')
         ->onlyOnForms();
+
         $fichierPieceJointe = CollectionField::new('pieceJointes')
             ->setEntryType(PieceJointeType::class)
             ->setFormTypeOption('by_reference',false)
             ->onlyOnForms();
+
         $nomImageJointe = AssociationField::new('pieceJointes')
             ->setFormType(VichFileType::class)
             ->setTemplatePath('pj/image.html.twig')
@@ -79,8 +81,6 @@ class ArticlesPrestationsCrudController extends AbstractCrudController
             ->setPageTitle(Crud::PAGE_NEW, 'Ajouter un article')
             ->setPageTitle(Crud::PAGE_EDIT, 'Modifier un article')
             ->setPageTitle(Crud::PAGE_DETAIL, 'Infos  article');
-
-
     }
 
     public function configureActions(Actions $actions): Actions
