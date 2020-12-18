@@ -5,6 +5,7 @@
 {% block body %}
     {% block header %}
         {{ parent() }}
+    {% endblock %}
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -58,7 +59,7 @@
             </a>
         </div>
 
-    {% endblock %}
+
 
     {% block section %}
 
@@ -135,6 +136,7 @@
                             <h3 style="color: #cccccc">Maquillage</h3>
                             <p style="color: #cccccc">Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
                                 commodo.</p>
+                            <div class="btn btn-danger"><a  href="{{ path('/maquillage') }}">Détail</a></div>
                         </div>
                     </li>
                     <li data-flip-title="Daisy Bush" data-flip-category="Purples">
@@ -384,46 +386,10 @@
         {{ parent() }}
     {% endblock %}
 
+    {% block javascripts %}
+        {{ parent() }}
+    {% endblock %}
 {% endblock %}
 
-{% block javascripts %}
-    <script>
-        var coverflow = $("#coverflow").flipster();
-    </script>
-    <script>
-        var slideIndex = 1;
-        showSlides(slideIndex);
 
-        // Next/previous controls
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
 
-        // Thumbnail image controls
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-        }
-
-        function showSlides(n) {
-            var i;
-            var slides = document.getElementsByClassName("mySlides");
-            var dots = document.getElementsByClassName("demo");
-            var captionText = document.getElementById("caption");
-            if (n > slides.length) {
-                slideIndex = 1
-            }
-            if (n < 1) {
-                slideIndex = slides.length
-            }
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            slides[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].className += " active";
-            captionText.innerHTML = dots[slideIndex - 1].alt;
-        }
-    </script>
-{% endblock %}

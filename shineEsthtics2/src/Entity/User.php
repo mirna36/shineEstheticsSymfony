@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use App\Service\AppService;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use DateTime;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -78,6 +80,16 @@ class User implements UserInterface
      *
      */
     private  $createdAt;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Adresse::class, mappedBy="user", orphanRemoval=true)
+     */
+    private $adresses;
+
+    public function __construct()
+    {
+        $this->adresses = new ArrayCollection();
+    }
 
     /**
      * @return string
@@ -249,6 +261,36 @@ public function apresChargement(){
 public function __toString():string
 {
     return $this->nom;
+}
+
+/**
+ * @return Collection|Adresse[]
+ */
+public function getAdresses(): Collection
+{
+    return $this->adresses;
+}
+
+public function addAdress(Adresse $adress): self
+{
+    if (!$this->adresses->contains($adress)) {
+        $this->adresses[] = $adress;
+        $adress->setUser($this);
+    }
+
+    return $this;
+}
+
+public function removeAdress(Adresse $adress): self
+{
+    if ($this->adresses->removeElement($adress)) {
+        // set the owning side to null (unless already changed)
+        if ($adress->getUser() === $this) {
+            $adress->setUser(null);
+        }
+    }
+
+    return $this;
 }
 
 }

@@ -50,6 +50,124 @@ class ShineEstheticsController extends AbstractController
         ]
         );
     }
+    /**
+     * @Route("/ongle", name="ongle")
+     */
+
+
+    public function ongle(): Response {
+
+        //Recupère la liste de tout les produits d'une categories
+        $produits = $this->articlesPrestationsRepository->findBy(["categories"=>3]);
+
+        $titre_page = "Shine Esthétics";
+        $titre = "Shine Esthetics Onglerie ";
+
+        return $this->render('produit/shop/produit.html.twig',[
+            'titre_page' => $titre_page,
+            'titre' => $titre,
+            'produits'=>$produits,
+
+        ]);
+    }
+    /**
+     * @Route("/coiffure", name="coiffure")
+     */
+
+
+    public function coiffure(Request $request): Response {
+
+
+        //Recupère la liste de tout les produits d'une categories
+        $produits = $this->articlesPrestationsRepository->findBy(["categories"=>2]);
+
+        $titre_page = "Shine Esthétics";
+        $titre = "Shine Esthetics Onglerie ";
+
+        return $this->render('produit/shop/produit.html.twig',[
+            'titre_page' => $titre_page,
+            'titre' => $titre,
+            'produits'=>$produits,
+        ]);
+    }
+    /**
+     * @Route("/maquillage", name="/maquillage")
+     */
+
+
+    public function maquillage(): Response {
+
+        //Recupère la liste de tout les produits d'une categories
+        $produits = $this->sousCategoriesRepository->findBy(["categories"=>1]);
+
+        $titre_page = "Shine Esthétics";
+        $titre = "Shine Esthetics Maquillage ";
+
+
+        return $this->render('produit/maquillage/sousCategories.html.twig',[
+            'titre_page' => $titre_page,
+            'titre' => $titre,
+            'produits'=>$produits,
+        ]);
+    }
+    /**
+     * @Route("/maquillage/{id}--{slug}",name="produitMaquillage")
+     * @param int $id
+     * @return Response
+     */
+    public function produitMaquillage(int $id){
+        $titre_page = "Shine Esthétics";
+        $titre = "Shine Esthetics Maquillage produit ";
+        $produits = $this->articlesPrestationsRepository->findBy(["sousCategories"=>$id]);
+        return $this->render("produit/maquillage/produitMaquillage.html.twig",[
+            'titre_page' => $titre_page,
+            'titre' => $titre,
+            'produit'=>$produits
+        ]);
+
+    }
+    /**
+     * @Route("/maquillage/detail/{id}--{slug}",name="detailMaquillage")
+     * @param int $id
+     * @return Response
+     */
+    public function detailMaquillage(int $id){
+        $titre_page = "Shine Esthétics";
+        $titre = "Shine Esthetics Maquillage detail ";
+        return $this->render("produit/maquillage/detailProduit.html.twig",[
+            'titre_page' => $titre_page,
+            'titre' => $titre,
+            'produit'=>$this->articlesPrestationsRepository->find($id),
+        ]);
+
+    }
+    /**
+     * @Route("/formation", name="formation")
+     */
+
+
+    public function formation(Request $request): Response {
+
+        //Recupère la liste de tout les produits d'une categories
+        $produits = $this->sousCategoriesRepository->findBy(["categories"=>4]);
+
+        $titre_page = "Shine Esthétics";
+        $titre = "Shine Esthetics Shop produit ";
+        $maRecherche = new Recherche();
+        $form = $this->createForm(RechercheType::class, $maRecherche);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()){
+            $produits = $this->articlesPrestationsRepository->findProduitByRecherche($maRecherche);
+
+        }
+
+        return $this->render('produit/shop/produit.html.twig',[
+            'titre_page' => $titre_page,
+            'titre' => $titre,
+            'produits'=>$produits,
+            'formRecherche'=>$form->createView(),
+        ]);
+    }
 
     /**
      * @Route("/shop", name="shop")

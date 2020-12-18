@@ -5,9 +5,6 @@ namespace App\Form;
 
 
 use App\Entity\Shop;
-use App\Entity\SousCategories;
-use App\Repository\CategoriesRepository;
-use App\Repository\SousCategoriesRepository;
 use App\Utils\Recherche;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;

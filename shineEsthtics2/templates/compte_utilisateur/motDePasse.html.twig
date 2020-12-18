@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ titre_page }}{% endblock %}
+
+{% block body %}
+    {% block header %}
+        {{ parent() }}
+    {% endblock %}
+    <div>{{ titre_page }}</div>
+
+
+    <div class="titre">
+        {{ titre }}
+    </div>
+    <h2>Bienvenue {{ app.user.nomComplet }}, c'est dans cette espace que vous allez pouvoir gérer votre mot de passe</h2>
+    <hr>
+
+
+    <hr>
+
+
+    <p> <a href="{{ path('compte') }}" class="btn btn-danger">retour</a></p>
+
+
+
+
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}
+    {% block javascripts %}
+        {{ parent() }}
+    {% endblock %}
+{% endblock %}
+

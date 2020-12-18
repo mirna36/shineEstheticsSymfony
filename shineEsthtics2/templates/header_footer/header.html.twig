@@ -4,7 +4,7 @@
 
     <header>
         <nav class="navbar navbar-expand-md navbar-dark  bg-dark">
-            <a class="navbar-brand" href="{{ path('_accueil_') }}"><img class="navbar-brand" src="../images/logo.jpeg"
+            <a class="navbar-brand" href="{{ path('_accueil_') }}"><img class="navbar-brand" src="{{ asset('images/logo.jpeg') }}"
                                                                         alt="Logo"/></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +36,7 @@
                             <a class="nav-link" href="#" style="color: #ffffff">Coiffure</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" style="color: #ffffff">Maquillage</a>
+                            <a class="nav-link" href="{{ path('/maquillage') }}" style="color: #ffffff">Maquillage</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#" style="color: #ffffff">Formation en Ligne</a>
@@ -53,20 +53,20 @@
                             Admin
                         </a>
 
-
+                    <a class="nav-link" href="{{ path('app_logout') }}"style="color: #ffffff">Déconnexion</a>
                 {% elseif is_granted('ROLE_USER') %}
 
-                    <div>{{ app.user.nomComplet }}</div>&nbsp &nbsp &nbsp
+                    <div style="color: #ffffff">{{ app.user.nomComplet }}</div>&nbsp &nbsp &nbsp
 
                     <div class="dropdown">
-                        <a class=" dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                        <a class=" dropdown-toggle" href="{{ path('compte') }}" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false" style="color: #ffffff">
                             Mon compte
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="{{ path('compte') }}">Mon Profile</a>
                             <a class="dropdown-item" href="#">Mes commandes</a>
-                            <a class="dropdown-item" href="#">Mon Profile</a>
                             <a class="dropdown-item" href="{{ path('app_logout') }}">Déconnexion</a>
                         </div>
                     </div>
@@ -80,8 +80,12 @@
                 <a href="{{ path('panier')}}" class="py-2 rounded-pill color-bg-fourth">
                     <span class="font-size-16 px-2 text-white"><i class="fas fa-shopping-cart"></i></span>
                     <span class="px-3  rounded-pill text-dark bg-light">{#{{ app.session.panier |length }}#}{{ app.session.get('panier')|length }} </span>
+                </a>&nbsp&nbsp
+                <a href="{{ path('panier')}}" class="py-2 rounded-pill color-bg-fourth">
+                    <span class="devis"style="color: #ffffff">Devis</span>
+                    <span class="px-3  rounded-pill text-dark bg-light">{#{{ app.session.panier |length }}#}{{ app.session.get('panier')|length }} </span>
                 </a>
-                <a class="nav-link" href="{{ path('app_logout') }}"style="color: #ffffff">Déconnexion</a>
+
                 {% if is_granted('ROLE_USER') %}
                 {% else %}
 

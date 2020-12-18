@@ -51,12 +51,16 @@
 
         </div>
     </div>
+</section>
 
     <!-- action -->
     {% endblock %}
 
 
     {% block footer %}
+        {{ parent() }}
+    {% endblock %}
+    {% block javascripts %}
         {{ parent() }}
     {% endblock %}
 {% endblock %}

@@ -19,7 +19,7 @@ body {
     font-size: 15px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 20px;
-    margin: 0em auto;
+    margin: 0 auto;
 }
 .photo-menue{
     margin-top: 5em;
@@ -47,11 +47,17 @@ h1{
     margin-left: 50px;
 }
 
-h2,h3,p{
+h2,h3,p,h5{
     color:#232221;
     font-family: 'EB Garamond', serif;
     text-align: center;
 }
+h5{
+    color:#232221;
+    font-family: 'EB Garamond', serif;
+    text-align: center;
+}
+
 p{
     color:#232221;
     font-family: 'EB Garamond', serif;
@@ -94,7 +100,6 @@ p{
     background-color:white;
     text-align: center;
     margin-top: 20px;
-    padding: 5em;
     padding-top: 1em;
     box-shadow: 12px 12px 2px 1px #bdbdbd
 }
@@ -173,7 +178,6 @@ img.navbar-brand {
  .container fieldset{
     background-color:white;
     margin: 5rem auto;
-    padding: 2em;
     padding-top: 3em;
     box-shadow: 12px 12px 2px 1px #bdbdbd;
 }
@@ -264,7 +268,7 @@ fieldset.form-group{
     left: 0;
     width: 100%;
     height: 100%;
-    background:rgb(0, 0, 0, 0.6);
+    background:rgb(0, 0, 0);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -288,9 +292,9 @@ fieldset.form-group{
     opacity: 1;
 }
 .flip-items h3,p{
-    text-align: left;
-    font-family: Arial, sans-serif;
     text-align: center;
+    font-family: Arial, sans-serif;
+
 }
 .flip-items p{
     font-size: small;
