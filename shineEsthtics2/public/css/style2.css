@@ -1,0 +1,510 @@
+
+
+/**:before,
+*:after {
+    box-sizing: border-box;
+}*/
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    /*height: 100vh;*/
+
+}
+
+body {
+    background-color:#fafafa;
+    font-weight: 400;
+    font-size: 15px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 20px;
+    margin: 0 auto;
+}
+.photo-menue{
+    margin-top: 5em;
+}
+.photo-menue p{
+    font-size: xx-large;
+}
+
+.titre{
+    font-size: xx-large;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    font-family: 'Dancing Script', cursive;
+    color:#232221;
+}
+.aboutMe {
+    margin-top: 5rem;
+}
+#photoLolo {
+    border-radius: 50%;
+
+}
+h1{
+    text-align: left;
+    margin-left: 50px;
+}
+
+h2,h3,p{
+    color:#232221;
+    font-family: 'EB Garamond', serif;
+    text-align: center;
+}
+h5{
+    color:#232221;
+    font-family: 'EB Garamond', serif;
+    text-align: center;
+}
+
+p{
+    color:#232221;
+    font-family: 'EB Garamond', serif;
+    font-size: 10px;
+}
+
+
+
+.fas.fa-cart-plus{
+    color:#d50000 ;
+    font-size: 25px;
+
+}
+.fas.fa-user-edit{
+    color: #e57373 ;
+    font-size: 100px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+
+}
+.fas.fa-user-lock{
+    color: #e57373 ;
+    font-size: 100px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+.fas.fa-user{
+    color: #e57373 ;
+    font-size: 100px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+
+.container .form-card .titreForm {
+    color: #e57373;
+    font-size: 10px;
+    text-align: center;
+}
+
+.container .formLogin-card {
+    background-color:white;
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    box-shadow: 12px 12px 2px 1px #bdbdbd
+}
+
+
+.container .formLogin-card .lock-open {
+    font-size: 160px;
+    color: #e57373 ;
+}
+
+.carousel-item img{
+    width: 100%;
+    height: 70rem;
+}
+#petitCarousel{
+    height: 30rem;
+}
+
+.color-primary {
+    color: #ffffff;
+}
+
+.color-primary-bg {
+    background-color: #424242;
+}
+
+.color-second {
+    color: #42a5f5;
+}
+
+.color-second-bg {
+    background-color: #42a5f5;
+}
+
+.color-third {
+    color: #009688;
+}
+
+.color-third-bg {
+    background-color: #009688;
+}
+
+.color-fourth {
+    color: #424242;
+}
+
+.color-fourth-bg {
+    background-color: #424242;
+}
+
+img.navbar-brand {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+}
+
+.img-product{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 20px;
+}
+
+.card {
+    width: 150px;
+    height: 400px;
+    margin-top: 50px;
+
+}
+
+.card img {
+
+    width: 100%;
+    height: 200px;
+}
+
+ .container fieldset{
+    background-color:white;
+    margin: 5rem auto;
+    padding-top: 3em;
+    box-shadow: 12px 12px 2px 1px #bdbdbd;
+}
+.footer {
+    background-color:#424242;
+    color: whitesmoke;
+    text-align: center;
+    margin-top: 100px;
+    padding-bottom: 20px;
+}
+
+fieldset p {
+    text-align: center;
+    color: red;
+}
+
+.container .photo-card #telephone {
+    text-align: center;
+    color: red;
+    font-size: 30px;
+}
+
+.container .photo-card #iconeTelephone {
+    font-size: 50px;
+}
+
+.container .photo-card #iconeMail {
+    font-size: 50px;
+    color: red;
+}
+
+.container .photo-card a {
+    font-size: 30px;
+    color: red;
+}
+
+.container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.container .photo-card {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+.container .form-card {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    width: 40%;
+}
+a{
+    color: #232221;
+}
+
+.boxProduit{
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-bottom: 40px;
+
+}
+.boxProduit:hover{
+    transform: translateY(25px);
+    box-shadow: 12px 12px 2px 1px #bdbdbd;
+}
+fieldset.form-group{
+    margin-top: 2px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+/*accueil prestations*/
+
+.flip-items{
+   position: relative;
+
+}
+.image__img{
+    display: block;
+}
+.img__overlay{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+.img__overlay--blur{
+    backdrop-filter: blur(5px);
+}
+.img__overlay h3,p{
+    transform: translateY(40px);
+    transition: transform 0.25s;
+
+}
+
+.img__overlay:hover h3,p{
+    transform: translateY(0);
+}
+.img__overlay:hover{
+    opacity: 1;
+}
+.flip-items h3,p{
+    text-align: center;
+    font-family: Arial, sans-serif;
+
+}
+.flip-items p{
+    font-size: small;
+}
+#shine {
+    font-family: 'Lobster', cursive;
+    font-size: 30px;
+    font-weight: 300;
+    color: red;
+    font-style: italic;
+    margin-top: 30px;
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+#esthetics {
+    font-family: 'Lobster', cursive;
+    font-size: 30px;
+    font-weight: 300;
+    color: red;
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+#legendeShine {
+    color: red;
+    text-align: center;
+}
+
+/*Gallery*/
+* {
+    box-sizing: border-box;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.fleches {
+    position: relative;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+    cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    margin-top: -50px;
+    padding-left: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    left: 30px;
+    border-radius: 0 3px 3px 0;
+}
+
+/* On hover, add a black background color with a little bit see-through
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0,);
+}
+*/
+
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Six columns side by side */
+.column {
+    float: left;
+    width: 16.66%;
+
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+    opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+    opacity: 1;
+}
+
+/*page detail poduit*/
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+.container {
+    max-width: 960px;
+}
+
+/*
+ * Custom translucent site header
+ */
+
+.site-header {
+    background-color: rgba(0, 0, 0, .85);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+}
+.site-header a {
+    color: #999;
+    transition: ease-in-out color .15s;
+}
+.site-header a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+/*
+ * Dummy devices (replace them with your own or something else entirely!)
+ */
+
+.product-device {
+    position: absolute;
+    right: 10%;
+    bottom: -30%;
+    width: 300px;
+    height: 540px;
+    background-color: #333;
+    border-radius: 21px;
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+}
+
+.product-device::before {
+    position: absolute;
+    top: 10%;
+    right: 10px;
+    bottom: 10%;
+    left: 10px;
+    content: "";
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 5px;
+}
+
+.product-device-2 {
+    top: -25%;
+    right: auto;
+    bottom: 0;
+    left: 5%;
+    background-color: #e5e5e5;
+}
+
+
+/*
+ * Extra utilities
+ */
+
+.flex-equal > * {
+    -ms-flex: 1;
+    flex: 1;
+}
+@media (min-width: 768px) {
+    .flex-md-equal > * {
+        -ms-flex: 1;
+        flex: 1;
+    }
+}

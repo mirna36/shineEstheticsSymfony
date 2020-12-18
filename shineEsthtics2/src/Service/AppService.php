@@ -5,13 +5,22 @@ namespace App\Service;
 
 
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AppService
 {
     /**
+     * @var UserPasswordEncoderInterface
      * @var SessionInterface
      */
     private $session;
+    private $encoder;
+
+    public function __construct(SessionInterface $session, UserPasswordEncoderInterface $encoder){
+
+        $this->encoder = $encoder;
+        $this->session = $session;
+    }
 
     public static function capitalize(string $mot){
         return ucwords(mb_strtolower(trim($mot)));
@@ -26,10 +35,6 @@ class AppService
         return mb_strtolower(trim($mot));
     }
 
-    public function __construct(SessionInterface $session){
-
-        $this->session = $session;
-    }
 
     public function ajouter($id){
         $panier = $this->session->get('panier',[]);

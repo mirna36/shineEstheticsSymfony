@@ -13,9 +13,21 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TelephoneField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use phpDocumentor\Reflection\Types\Parent_;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserCrudController extends AbstractCrudController
 {
+
+    /**
+     * @var UserPasswordEncoderInterface
+     */
+    private $encoder;
+
+    public function __construct(UserPasswordEncoderInterface $encoder){
+
+        $this->encoder = $encoder;
+    }
+
     public static function getEntityFqcn(): string
     {
         return User::class;
@@ -23,7 +35,7 @@ class UserCrudController extends AbstractCrudController
 
     public function configureCrud(Crud $crud): Crud{
         return parent::configureCrud($crud)
-            ->setPaginatorPageSize(2)
+            ->setPaginatorPageSize(5)
             ->setPageTitle(Crud::PAGE_INDEX, 'Liste des Utilisateurs')
             ->setPageTitle(Crud::PAGE_NEW, 'Ajouter un Utilisateur')
             ->setPageTitle(Crud::PAGE_EDIT, 'Modifier un Utilisateur')
@@ -43,13 +55,16 @@ class UserCrudController extends AbstractCrudController
         $cathegories = ArrayField::new('roles','Cathégorie');
         $email = EmailField::new('email', 'Email');
         $password = TextField::new('password','Password')->onlyWhenCreating();
+
         $dateCreation = DateField::new('created_at','Date de Creation')->onlyOnIndex();
 
         $affichageUtilisateur = [$panelUtilisateurs, $id, $nom, $prenom,$telephone,$cathegories,
             $email,$password, $dateCreation
         ];
+
         return array_merge($affichageUtilisateur);
 
     }
+
 
 }

@@ -14,12 +14,33 @@
     </div>
     <h2>Bienvenue {{ app.user.nomComplet }}, c'est dans cette espace que vous allez pouvoir gérer votre mot de passe</h2>
     <hr>
+    <div class="container mt-4">
+        <div class="formLogin-card mx-auto ">
+            <div>
+                <i class="fas fa-user-edit"></i>
+                <h1 class="h3 mb-3 font-weight-normal">Modifier mot de Passe</h1>
+            </div>
+            {% if notification %}
+            <div class="aler alert-danger">{{ notification }}</div>
+            {% endif %}
+            <br>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
 
+<br>
+            <button class="btn btn-lg btn-danger" type="submit">Mettre à jour</button>
+            {{ form_end(form) }}
+            <br><br>
+
+        </div>
+
+    </div>
 
     <hr>
 
 
-    <p> <a href="{{ path('compte') }}" class="btn btn-danger">retour</a></p>
+    <br><br>
+    <button class="btn btn-lg btn-danger"> <a href="{{ path('compte') }}" class="btn btn-danger">retour au profile</a></button>
 
 
 
