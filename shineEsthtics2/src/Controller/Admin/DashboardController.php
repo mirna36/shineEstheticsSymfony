@@ -6,6 +6,7 @@ use App\Entity\ArticlesPrestations;
 use App\Entity\Categories;
 use App\Entity\Shop;
 use App\Entity\SousCategories;
+use App\Entity\Transport;
 use App\Entity\User;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
@@ -59,6 +60,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Sous-Catégories', 'fas fa-list', SousCategories::class);
         yield MenuItem::linkToCrud('Articles/Prestations', 'fas fa-list', ArticlesPrestations::class);
         yield MenuItem::linkToCrud('Shop', 'fas fa-list', Shop::class);
+        yield MenuItem::linkToCrud('Transport', 'fas fa-truck', Transport::class);
     }
 
     public function configureUserMenu(UserInterface $user): \EasyCorp\Bundle\EasyAdminBundle\Config\UserMenu
@@ -67,32 +69,6 @@ class DashboardController extends AbstractDashboardController
         ->setName($this->getUser()->getNomComplet());
 }
 
-    protected function persistUserEntity($user)
-    {
-        $encodedPassword = $this->encodePassword($user, $user->getPlainPassword());
-        $user->setPassword($encodedPassword);
-
-        parent::persistEntity($user);
-    }
-
-    protected function updateUserEntity($user)
-    {
-        $encodedPassword = $this->encodePassword($user, $user->getPlainPassword());
-        $user->setPassword($encodedPassword);
-
-        parent::updateEntity($user);
-    }
-
-    private function encodePassword($user, $password)
-    {
-        $passwordEncoderFactory = new EncoderFactory([
-            User::class => new MessageDigestPasswordEncoder('sha512', true, 5000)
-        ]);
-
-        $encoder = $passwordEncoderFactory->getEncoder($user);
-
-        return $encoder->encodePassword($password, $user->getSalt());
-    }
 
 
 }

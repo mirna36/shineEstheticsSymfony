@@ -1,13 +1,66 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{{ titre_page }}{% endblock %}
+
 {% block body %}
+    {% block header %}
+        {{ parent() }}
+    {% endblock %}
+    <div>{{ titre_page }}</div>
 
-{% endblock %}
 
-{% block title %}
+    <div class="titre">
+        {{ titre }}
+    </div>
+    <a class="btn btn-lg btn-danger float-right" href="{{ path('ajouter_adresse') }}" >Ajouter une adresse </a>
+    <h2>Bienvenue {{ app.user.nomComplet }}, c'est dans cette espace que vous allez pouvoir gérer vos adresses</h2>
 
+
+    <hr>
+
+
+        {%if app.user.adresses|length==0 %}
+            Vous n'avez pas encore ajouté d'adresse! Pour en ajouter une, &nbsp <a href="{{ path('ajouter_adresse') }}" style="color: blue">veuillez cliquer ici</a>
+        {% else %}
+            <div class="row">
+                {% for adresse in app.user.adresses %}
+                    <div class="col-md-4">
+
+                        <div style="border: gray solid 1px; background: white; text-align: center;padding: 1rem">
+                            <div class="card-body">
+                                <h4 class="card-title">{{ adresse.nom }}</h4>
+                                <h6 class="card-text" style="text-align: center">
+                                    {{ adresse.adresse }},<br>
+                                    {{ adresse.Cpostal }},<br>
+                                    {{ adresse.ville }},<br>
+                                    {{ adresse.pays }}
+                                </h6>
+                                <a href="{{ path('modifier_adresse',{'id':adresse.id}) }} " style="color: blue">Modifier</a> | <a href="{{ path('supprimer_adresse',{'id':adresse.id}) }}" style="color: blue">Supprimer</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor%}
+
+            </div>
+
+        {% endif %}
+
+
+
+
+    <hr>
+
+
+    <br><br>
+    <button class="btn btn-lg btn-danger"> <a href="{{ path('compte') }}" class="btn btn-danger">retour au profile</a></button>
+
+
+
+
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}
     {% block javascripts %}
         {{ parent() }}
     {% endblock %}
 {% endblock %}
-

@@ -2,10 +2,13 @@
 
 namespace App\Form;
 
-use App\Entity\AdresseClient;
-use Doctrine\DBAL\Types\TextType;
+use App\Entity\Adresse;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,25 +17,72 @@ class AdresseType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('adresse',null,[
+            ->add('nom',TextType::class,[
                 'label'=>false,
-                'attr'=>['placeholder'=>'Veuillez renseigner votre adresse'],
-            ])
-            ->add('ville',null,[
+
+                'attr'=>[
+                    'placeholder'=>'Entrez un nom',
+                ]
+        ])
+            ->add('prenom',TextType::class,[
                 'label'=>false,
-                'attr'=>['placeholder'=>'Veuillez renseigner votre ville'],
+
+                'attr'=>[
+                    'placeholder'=>'Entrez un prénom',
+                ]
             ])
-            ->add('CP',NumberType::class,[
+            ->add('entreprise',TextType::class,[
                 'label'=>false,
-                'attr'=>['placeholder'=>'Veuillez renseigner votre votre code postal'],
+                'required'=>false,
+                'attr'=>[
+                    'placeholder'=>'(facultatif) Entrez une entreprise',
+
+                ]
             ])
+            ->add('adresse',TextType::class,[
+                'label'=>false,
+
+                'attr'=>[
+                    'placeholder'=>'Entrez un n° et de la rue',
+                ]
+            ])
+            ->add('Cpostal',TextType::class,[
+                'label'=>false,
+
+                'attr'=>[
+                    'placeholder'=>'Entrez un code postale',
+                ]
+            ])
+            ->add('Ville',TextType::class,[
+                'label'=>false,
+
+                'attr'=>[
+                    'placeholder'=>'Entrez un nom de  ville',
+                ]
+            ])
+            ->add('Pays',CountryType::class,[
+                'label'=>false,
+
+                'attr'=>[
+                    'placeholder'=>'Le nom du pays',
+                ]
+            ])
+            ->add('Telephone',TelType::class,[
+                'label'=>false,
+
+                'attr'=>[
+                    'placeholder'=>'un numero de téléphone',
+                ]
+            ])
+
+
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => AdresseClient::class,
+            'data_class' => Adresse::class,
         ]);
     }
 }

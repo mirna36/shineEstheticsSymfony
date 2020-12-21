@@ -63,7 +63,8 @@
             <div class="text-center">
                 <p style="font-size: 15px">Nombre de produit: {{ panier|length }}</p>
                 <p style="font-size: 15px">Total panier: {{ total | format_currency('EUR') }}</p>
-                <a href="" class="btn btn-danger">Valider mon panier</a>
+                <a href="{{ path('commande') }}" class="btn btn-danger">Valider mon panier</a>
+                <a href="{{ path('shop') }}" class="btn btn-danger">Retour shop</a>
             </div>
 
             {% else %}

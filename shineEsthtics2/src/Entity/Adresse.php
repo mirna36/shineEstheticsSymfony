@@ -63,6 +63,10 @@ class Adresse
      */
     private $Telephone;
 
+    public function __toString(){
+        return $this->getNom().'[br]'.$this->getAdresse().'[br]'.$this->getCpostal().'[br]'.$this->getVille().' - '.$this->getPays();
+    }
+
     public function getId(): ?int
     {
         return $this->id;

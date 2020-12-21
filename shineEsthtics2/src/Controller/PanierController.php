@@ -27,20 +27,11 @@ class PanierController extends AbstractController
     {
         $titre_page = "Shine Esthetics";
         $titre = "Shine Esthétics mon panier";
-        $panierComplet = [];
 
-        if($appService->get()){
-            foreach ($appService->get() as $id=> $quantite){
-                $panierComplet[] = [
-                    'produit'=>$this->entityManager->getRepository(ArticlesPrestations::class)->findOneById($id),
-                    'quantite'=>$quantite,
-                ];
-            }
-        }
 
 
         return $this->render('panier/index.html.twig',[
-            'panier'=> $panierComplet,
+            'panier'=> $appService->getFull(),
              'titre_page' => $titre_page,
             'titre' => $titre,
             ]

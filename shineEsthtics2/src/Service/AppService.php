@@ -4,6 +4,8 @@
 namespace App\Service;
 
 
+use App\Entity\ArticlesPrestations;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
@@ -15,11 +17,16 @@ class AppService
      */
     private $session;
     private $encoder;
+    /**
+     * @var EntityManagerInterface
+     */
+    private $entityManager;
 
-    public function __construct(SessionInterface $session, UserPasswordEncoderInterface $encoder){
+    public function __construct(SessionInterface $session, UserPasswordEncoderInterface $encoder, EntityManagerInterface $entityManager){
 
         $this->encoder = $encoder;
         $this->session = $session;
+        $this->entityManager = $entityManager;
     }
 
     public static function capitalize(string $mot){
@@ -68,5 +75,19 @@ class AppService
         $panier = $this->session->get('panier',[]);
         unset($panier[$id]);
         return $this->session->set('panier', $panier);
+    }
+
+    public function getFull(){
+        $panierComplet = [];
+
+        if($this->get()){
+            foreach ($this->get() as $id=> $quantite){
+                $panierComplet[] = [
+                    'produit'=>$this->entityManager->getRepository(ArticlesPrestations::class)->findOneById($id),
+                    'quantite'=>$quantite,
+                ];
+            }
+        }
+        return $panierComplet;
     }
 }

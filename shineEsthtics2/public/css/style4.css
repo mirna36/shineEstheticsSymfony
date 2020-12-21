@@ -223,6 +223,11 @@ fieldset p {
     display: -ms-flexbox;
     display: flex;
 }
+.commande{
+    margin-left: 10rem;
+    margin-right: 10rem;
+
+}
 
 .container .photo-card {
     -webkit-box-orient: horizontal;
@@ -507,4 +512,18 @@ fieldset.form-group{
         -ms-flex: 1;
         flex: 1;
     }
+}
+.form-check {
+    background: #dfe4ee;
+    padding: 20px;
+    margin-top: 12px;
+
+}
+.col-form-label{
+    font-weight: bold;
+}
+.resume_commande{
+    background: #dfe4ee;
+    padding: 20px;
+
 }

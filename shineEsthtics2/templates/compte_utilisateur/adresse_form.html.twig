@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ titre_page }}{% endblock %}
+
+{% block body %}
+    {% block header %}
+        {{ parent() }}
+    {% endblock %}
+    <div>{{ titre_page }}</div>
+
+
+    <div class="titre">
+        {{ titre }}
+    </div>
+
+    <h2>Bienvenue {{ app.user.nomComplet }}, c'est dans cette espace que vous allez pouvoir ajouter une adresse</h2>
+
+
+    <hr>
+    <div class="container">
+        <div class="formLogin-card mx-auto " STYLE="padding-left: 3rem; padding-right: 3rem;">
+            <div>
+                <i class="fas fa-user-edit"></i>
+                <h1 class="h3 mb-3 font-weight-normal">Gérer une adresse</h1>
+            </div>
+            <br>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+
+            <br>
+            <button class="btn btn-lg btn-danger" type="submit">Valider</button>
+            {{ form_end(form) }}
+            <br><br>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <br><br>
+    <button class="btn btn-lg btn-danger"> <a href="{{ path('compte') }}" class="btn btn-danger">retour au profile</a></button>
+
+
+
+
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}
+    {% block javascripts %}
+        {{ parent() }}
+    {% endblock %}
+{% endblock %}

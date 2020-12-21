@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ titre_page }}{% endblock %}
+
+{% block body %}
+    {% block header %}
+        {{ parent() }}
+        <div class="titre">
+            <h1>{{ titre }}</h1>
+        </div>
+        <h2>Je passe ma commande.</h2>
+        <hr>
+    {% endblock %}
+
+    {% block content %}
+        <div class="commande">
+            <div class="row">
+                <div class="col-md-6">
+                    {% set formhtml %}
+                        {{ form(form) }}
+                    {% endset %}
+                    {{ formhtml|replace({'[br]': '<br/>'})|raw }}
+
+                </div>
+
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <b>Récapitulatif commande</b><br>
+                        <p>Retrouvez le récapitulatif de vos produits</p>
+                    </div>
+
+                    <div class="resume_commande">
+                        {% for produit in panier %}
+                            <div class="row">
+                                <div class="col-2" style="margin-bottom: 20px">
+                                    <img src="{{ asset('images/products/') }}{{ produit.produit.nomPhoto }}"
+                                         alt="{{ produit.produit.nomPhoto }}" width="70"><br>
+                                </div>
+                                <div class="col-8 my-auto" style="text-align: center">
+                                    {{ produit.produit.libelle }}
+                                </div>
+
+                                <div class="col-2 my-auto">
+                                    X {{ produit.quantite }}
+                                </div>
+
+                            </div>
+
+
+                        {% endfor %}
+                    </div>
+
+
+
+                </div>
+            </div>
+
+        </div>
+
+    {% endblock %}
+
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}
+    {% block javascripts %}
+        {{ parent() }}
+    {% endblock %}
+{% endblock %}
